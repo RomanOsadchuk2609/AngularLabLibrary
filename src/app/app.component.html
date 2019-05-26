@@ -15,12 +15,14 @@
   <div align="right">
 
     <div class="btn-group">
-      <button class="btn btn-outline-primary">Profile</button>
+      <button class="btn btn-outline-primary" (click)="showProfile(true)">Profile</button>
       <button class="btn btn-outline-secondary" (click)="signOut()">Sign out</button>
     </div>
   </div>
-  <app-library-main>
+  <app-user-profile *ngIf="isProfile" [username]="username"
+                    (updateInfo)="updateUser($event)"
+                    (close)="showProfile($event)"></app-user-profile>
 
-  </app-library-main>
+  <app-library-main *ngIf="!isProfile"></app-library-main>
 </div>
 

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isLogined = false;
+  isProfile = false;
   username = '';
   password = '';
   title = 'Online Library';
@@ -44,5 +45,22 @@ export class AppComponent {
       }
     }
     return false;
+  }
+
+  showProfile(value: boolean) {
+    this.isProfile = value;
+  }
+
+  updateUser(event: {username: string; newUsername: string; newPassword: string}) {
+    for (const u of this.users) {
+      if (u.username === event.username) {
+        if (event.newUsername !== '') {
+          u.username = event.newUsername;
+        }
+        if (event.newPassword !== '') {
+          u.password = event.newPassword;
+        }
+      }
+    }
   }
 }

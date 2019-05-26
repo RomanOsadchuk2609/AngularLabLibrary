@@ -3,10 +3,10 @@
   <table *ngIf="!isBookReading" class="table" style="max-width: 100%; width: 900px">
     <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Author</th>
-      <th scope="col">Action</th>
+      <th width="10%" scope="col">#</th>
+      <th width="25%" scope="col">Name</th>
+      <th width="25%" scope="col">Author</th>
+      <th width="30%" scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -15,8 +15,9 @@
       <td>{{b.name}}</td>
       <td>{{b.author}}</td>
       <td>
-        <button class="btn-dark" (click)="readBook(i)">Read</button>
-        <button class="btn-secondary" >Edit</button>
+        <button class="btn btn-dark" style="margin-right: 20px" (click)="readBook(i)">Read</button>
+        <button class="btn btn-secondary" style="margin-right: 20px">Edit</button>
+        <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
       </td>
     </tr>
   </table>

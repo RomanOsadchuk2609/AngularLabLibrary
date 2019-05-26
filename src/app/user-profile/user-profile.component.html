@@ -1,0 +1,10 @@
+<div align="center">
+  <h1>{{username}}</h1>
+
+  <div style="width: 300px">
+    <input style="margin-bottom: 20px" class="form-control" [(ngModel)]="newUsername" placeholder="New Username">
+    <input style="margin-bottom: 20px" class="form-control" [(ngModel)]="newPassword" type="password" placeholder="New Password">
+    <button style="margin-right: 20px" class="btn btn-primary" (click)="updateUserInfo()">Update</button>
+    <button class="btn btn-outline-secondary" (click)="closeProfile()">Close</button>
+  </div>
+</div>
