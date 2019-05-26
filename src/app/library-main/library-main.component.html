@@ -1,6 +1,6 @@
 
 <div style="width: fit-content">
-  <table *ngIf="!isBookReading" class="table" style="max-width: 100%; width: 900px">
+  <table *ngIf="!isBookReading && !isBookEditing" class="table" style="max-width: 100%; width: 900px">
     <thead class="thead-dark">
     <tr>
       <th width="10%" scope="col">#</th>
@@ -16,11 +16,18 @@
       <td>{{b.author}}</td>
       <td>
         <button class="btn btn-dark" style="margin-right: 20px" (click)="readBook(i)">Read</button>
-        <button class="btn btn-secondary" style="margin-right: 20px">Edit</button>
+        <button class="btn btn-secondary" style="margin-right: 20px" (click)="editBook(i)">Edit</button>
         <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
       </td>
     </tr>
   </table>
+  <app-editing-book *ngIf="isBookEditing"
+                    [index]="currentIndex"
+                    [name]="books[currentIndex].name"
+                    [author]="books[currentIndex].author"
+                    [text]="books[currentIndex].text"
+                    (updateInfo)="updateBook($event)"
+                    (close)="setBookEditing($event)"></app-editing-book>
   <app-reading-book *ngIf="isBookReading" [InputBook]="currentBook" (close)="setBookReading($event)"></app-reading-book>
 
 </div>

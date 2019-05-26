@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class LibraryMainComponent implements OnInit {
 
   isBookReading = false;
+  isBookEditing = false;
   currentBook;
+  currentIndex;
 
   books  = [
     {name: 'book1', author: 'author1', text: 'This is book1! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' +
@@ -47,6 +49,18 @@ export class LibraryMainComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateBook(event: {index: number; name: string; author: string; text: string}) {
+    this.books[event.index].name = event.name;
+    this.books[event.index].author = event.author;
+    this.books[event.index].text = event.text;
+  }
+
+  editBook(index: number) {
+    this.currentBook = this.books[index];
+    this.currentIndex = index;
+    this.isBookEditing = true;
+  }
+
   readBook(index: number) {
     this.currentBook = this.books[index];
     this.isBookReading = true;
@@ -58,5 +72,9 @@ export class LibraryMainComponent implements OnInit {
 
   setBookReading(value: boolean) {
     this.isBookReading = value;
+  }
+
+  setBookEditing(value: boolean) {
+    this.isBookEditing = value;
   }
 }

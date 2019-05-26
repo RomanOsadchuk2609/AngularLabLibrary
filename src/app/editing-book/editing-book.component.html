@@ -1,0 +1,7 @@
+<div align="center" style="width: 500px">
+  <input class="form-control" style="margin-bottom: 20px" [(ngModel)]="name">
+  <input class="form-control" style="margin-bottom: 20px" [(ngModel)]="author">
+  <textarea class="form-control" style="resize: none; margin-bottom: 20px" [(ngModel)]="text" rows="5"></textarea>
+  <button class="btn btn-primary" style="margin-right: 20px" (click)="updateBookInfo()">Update</button>
+  <button class="btn btn-outline-secondary" style="margin-right: 20px" (click)="closeEditing()">Close</button>
+</div>
